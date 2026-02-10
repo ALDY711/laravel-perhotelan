@@ -1,0 +1,517 @@
+/**
+ * Grand Hotel - Home Page Styles
+ * CSS file specifically for the home/landing page
+ */
+
+/* ===================== */
+/* Hero Section */
+/* ===================== */
+.hero-section {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    padding: 4rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: radial-gradient(ellipse at right center, rgba(201, 169, 89, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-section {
+        min-height: auto;
+        padding: 3rem 0;
+    }
+}
+
+/* ===================== */
+/* Animated Stats */
+/* ===================== */
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stat-box {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(22, 33, 62, 0.6);
+    border-radius: 16px;
+    border: 1px solid rgba(201, 169, 89, 0.2);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.stat-box:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-gold);
+    box-shadow: 0 15px 40px rgba(201, 169, 89, 0.15);
+}
+
+/* ===================== */
+/* Search Form */
+/* ===================== */
+.search-form-container {
+    background: rgba(22, 33, 62, 0.85);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(201, 169, 89, 0.25);
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.search-form-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-gold);
+}
+
+.search-form-container .form-label {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.search-form-container .form-control {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(201, 169, 89, 0.2);
+    color: white;
+    border-radius: 12px;
+    padding: 0.875rem 1rem;
+}
+
+.search-form-container .form-control:focus {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--primary-gold);
+    box-shadow: 0 0 0 3px rgba(201, 169, 89, 0.15);
+}
+
+/* ===================== */
+/* Room Cards */
+/* ===================== */
+.room-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.room-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+}
+
+.room-card .room-image {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.room-card .room-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.room-card:hover .room-image img {
+    transform: scale(1.1);
+}
+
+.room-card .room-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60%;
+    background: linear-gradient(to top, rgba(22, 33, 62, 1) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+.room-card .room-price-tag {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--gradient-gold);
+    color: var(--dark-bg);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    box-shadow: 0 4px 15px rgba(201, 169, 89, 0.4);
+    z-index: 2;
+}
+
+.room-card .room-body {
+    padding: 1.5rem;
+    position: relative;
+    margin-top: -2rem;
+    z-index: 2;
+}
+
+.room-card .room-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.room-card .room-features {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.room-card .room-feature {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+.room-card .room-feature i {
+    color: var(--primary-gold);
+}
+
+/* ===================== */
+/* Feature Cards */
+/* ===================== */
+.feature-card {
+    padding: 2rem;
+    text-align: center;
+    height: 100%;
+    position: relative;
+}
+
+.feature-card .feature-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(201, 169, 89, 0.15) 0%, rgba(201, 169, 89, 0.05) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(201, 169, 89, 0.2);
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.1) rotate(5deg);
+    background: linear-gradient(135deg, rgba(201, 169, 89, 0.25) 0%, rgba(201, 169, 89, 0.1) 100%);
+    box-shadow: 0 10px 30px rgba(201, 169, 89, 0.2);
+}
+
+.feature-card .feature-icon i {
+    font-size: 2rem;
+    color: var(--primary-gold);
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover .feature-icon i {
+    transform: scale(1.1);
+}
+
+/* ===================== */
+/* CTA Section */
+/* ===================== */
+.cta-section {
+    background: linear-gradient(135deg, rgba(201, 169, 89, 0.1) 0%, rgba(22, 33, 62, 0.9) 100%);
+    border-radius: 24px;
+    padding: 4rem 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(201, 169, 89, 0.05) 0%, transparent 50%);
+    animation: rotateBg 30s linear infinite;
+}
+
+@keyframes rotateBg {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ===================== */
+/* Promotional Banner */
+/* ===================== */
+.promo-banner {
+    background: linear-gradient(135deg, #c9a959 0%, #e4d5a8 50%, #c9a959 100%);
+    background-size: 200% auto;
+    animation: gradientShift 3s linear infinite;
+    color: var(--dark-bg);
+    padding: 0.75rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.promo-banner .promo-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.promo-banner .promo-text {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.promo-banner .promo-countdown {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.promo-banner .countdown-item {
+    background: var(--dark-bg);
+    color: var(--primary-gold);
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.875rem;
+    min-width: 35px;
+    text-align: center;
+}
+
+.promo-banner .promo-close {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--dark-bg);
+    font-size: 1.25rem;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.promo-banner .promo-close:hover {
+    opacity: 1;
+}
+
+/* ===================== */
+/* Stagger Animation */
+/* ===================== */
+.stagger-animation>* {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUpItem 0.6s ease forwards;
+}
+
+.stagger-animation>*:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.stagger-animation>*:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.stagger-animation>*:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.stagger-animation>*:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.stagger-animation>*:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.stagger-animation>*:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+@keyframes fadeInUpItem {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===================== */
+/* Section Styling */
+/* ===================== */
+.section-title {
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--gradient-gold);
+    border-radius: 2px;
+}
+
+/* ===================== */
+/* Testimonials */
+/* ===================== */
+.testimonial-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2rem;
+    position: relative;
+}
+
+.testimonial-card::before {
+    content: '"';
+    position: absolute;
+    top: 1rem;
+    left: 1.5rem;
+    font-size: 5rem;
+    line-height: 1;
+    color: var(--primary-gold);
+    opacity: 0.2;
+    font-family: serif;
+}
+
+.testimonial-card .stars {
+    color: var(--primary-gold);
+    margin-bottom: 1rem;
+}
+
+.testimonial-card .author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.testimonial-card .author-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--gradient-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: var(--dark-bg);
+}
+
+/* ===================== */
+/* Partners/Brands */
+/* ===================== */
+.partner-logo {
+    opacity: 0.5;
+    filter: grayscale(100%);
+    transition: all 0.3s ease;
+}
+
+.partner-logo:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+}
+
+/* ===================== */
+/* Responsive */
+/* ===================== */
+@media (max-width: 991px) {
+    .promo-banner .promo-content {
+        gap: 1rem;
+    }
+
+    .search-form-container {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .stat-box {
+        padding: 1rem;
+    }
+
+    .stat-number {
+        font-size: 1.75rem;
+    }
+
+    .feature-card {
+        padding: 1.5rem;
+    }
+
+    .feature-card .feature-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .feature-card .feature-icon i {
+        font-size: 1.5rem;
+    }
+}

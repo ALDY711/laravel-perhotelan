@@ -1,0 +1,566 @@
+/**
+ * Grand Hotel - Guest Layout Styles
+ * Main CSS file for guest-facing pages
+ */
+
+:root {
+    --primary-gold: #c9a959;
+    --primary-gold-light: #e4d5a8;
+    --primary-gold-dark: #a88c3a;
+    --dark-bg: #1a1a2e;
+    --darker-bg: #0f0f1a;
+    --card-bg: #16213e;
+    --card-bg-hover: #1e2a4a;
+    --text-light: #f8f9fa;
+    --text-muted: #adb5bd;
+    --gradient-gold: linear-gradient(135deg, #c9a959 0%, #e4d5a8 50%, #c9a959 100%);
+    --shadow-gold: 0 10px 40px rgba(201, 169, 89, 0.2);
+    --glass-bg: rgba(22, 33, 62, 0.7);
+    --glass-border: rgba(201, 169, 89, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 50%, #1a1a35 100%);
+    background-attachment: fixed;
+    color: var(--text-light);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ===================== */
+/* Animated Background Particles */
+/* ===================== */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--primary-gold);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: float 15s infinite ease-in-out;
+}
+
+.particle:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 20s; }
+.particle:nth-child(2) { left: 20%; animation-delay: 2s; animation-duration: 18s; }
+.particle:nth-child(3) { left: 30%; animation-delay: 4s; animation-duration: 22s; }
+.particle:nth-child(4) { left: 40%; animation-delay: 1s; animation-duration: 19s; }
+.particle:nth-child(5) { left: 50%; animation-delay: 3s; animation-duration: 21s; }
+.particle:nth-child(6) { left: 60%; animation-delay: 5s; animation-duration: 17s; }
+.particle:nth-child(7) { left: 70%; animation-delay: 2.5s; animation-duration: 23s; }
+.particle:nth-child(8) { left: 80%; animation-delay: 1.5s; animation-duration: 20s; }
+.particle:nth-child(9) { left: 90%; animation-delay: 4.5s; animation-duration: 18s; }
+.particle:nth-child(10) { left: 95%; animation-delay: 0.5s; animation-duration: 24s; }
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.4;
+    }
+    50% {
+        opacity: 0.2;
+        transform: translateY(50vh) scale(1);
+    }
+    90% {
+        opacity: 0.3;
+    }
+    100% {
+        transform: translateY(-10vh) scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* ===================== */
+/* Typography */
+/* ===================== */
+h1, h2, h3, h4, h5 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+}
+
+.text-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ===================== */
+/* Navbar Styles */
+/* ===================== */
+.navbar-premium {
+    background: rgba(22, 33, 62, 0.85) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 1rem 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar-premium.scrolled {
+    padding: 0.5rem 0;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav-link {
+    color: var(--text-light) !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-gold);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 60%;
+}
+
+.nav-link:hover {
+    color: var(--primary-gold) !important;
+}
+
+/* ===================== */
+/* Buttons */
+/* ===================== */
+.btn-gold {
+    background: var(--gradient-gold);
+    background-size: 200% auto;
+    color: var(--dark-bg);
+    border: none;
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-gold::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+}
+
+.btn-gold:hover::before {
+    left: 100%;
+}
+
+.btn-gold:hover {
+    background-position: right center;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-gold);
+    color: var(--dark-bg);
+}
+
+.btn-outline-gold {
+    background: transparent;
+    border: 2px solid var(--primary-gold);
+    color: var(--primary-gold);
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-gold:hover {
+    background: var(--primary-gold);
+    color: var(--dark-bg);
+    transform: translateY(-2px);
+}
+
+/* ===================== */
+/* Cards */
+/* ===================== */
+.card-premium {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-premium:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+    border-color: rgba(201, 169, 89, 0.3);
+}
+
+/* ===================== */
+/* Form Controls */
+/* ===================== */
+.form-control-premium {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(201, 169, 89, 0.2);
+    color: var(--text-light);
+    border-radius: 12px;
+    padding: 0.875rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-control-premium:focus {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--primary-gold);
+    box-shadow: 0 0 0 3px rgba(201, 169, 89, 0.15);
+    color: var(--text-light);
+}
+
+.form-control-premium::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* ===================== */
+/* Badges */
+/* ===================== */
+.badge-gold {
+    background: linear-gradient(135deg, rgba(201, 169, 89, 0.2) 0%, rgba(201, 169, 89, 0.1) 100%);
+    color: var(--primary-gold);
+    border: 1px solid rgba(201, 169, 89, 0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: 500;
+}
+
+/* ===================== */
+/* Scroll to Top Button */
+/* ===================== */
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--gradient-gold);
+    border: none;
+    color: var(--dark-bg);
+    font-size: 1.25rem;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px rgba(201, 169, 89, 0.4);
+    z-index: 999;
+}
+
+.scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(201, 169, 89, 0.5);
+}
+
+/* ===================== */
+/* Toast Notifications */
+/* ===================== */
+.toast-container {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+}
+
+.toast-notification {
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    animation: toastSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.toast-notification.hiding {
+    animation: toastSlideOut 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes toastSlideIn {
+    from { opacity: 0; transform: translateX(100%); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes toastSlideOut {
+    from { opacity: 1; transform: translateX(0); }
+    to { opacity: 0; transform: translateX(100%); }
+}
+
+.toast-notification .toast-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.toast-notification.success .toast-icon { background: rgba(16, 185, 129, 0.2); color: #10b981; }
+.toast-notification.error .toast-icon { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
+.toast-notification.warning .toast-icon { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
+.toast-notification.info .toast-icon { background: rgba(59, 130, 246, 0.2); color: #3b82f6; }
+
+.toast-notification .toast-content { flex: 1; }
+.toast-notification .toast-title { font-weight: 600; margin-bottom: 0.25rem; }
+.toast-notification .toast-message { font-size: 0.875rem; color: var(--text-muted); }
+
+.toast-notification .toast-close {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 0;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+.toast-notification .toast-close:hover { color: var(--text-light); }
+
+.toast-notification .toast-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: var(--primary-gold);
+    animation: toastProgress 5s linear forwards;
+}
+
+@keyframes toastProgress {
+    from { width: 100%; }
+    to { width: 0%; }
+}
+
+/* ===================== */
+/* Lightbox */
+/* ===================== */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-image {
+    max-width: 90%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 8px;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.lightbox.active .lightbox-image {
+    transform: scale(1);
+}
+
+.lightbox-close, .lightbox-nav {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.lightbox-close {
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+}
+
+.lightbox-nav {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+}
+
+.lightbox-prev { left: 20px; }
+.lightbox-next { right: 20px; }
+
+.lightbox-close:hover, .lightbox-nav:hover {
+    background: var(--primary-gold);
+    color: var(--dark-bg);
+}
+
+.lightbox-caption {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    padding: 0.5rem 1.5rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50px;
+}
+
+/* ===================== */
+/* Confirmation Modal */
+/* ===================== */
+.confirm-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 2.5rem;
+}
+
+.confirm-icon.warning { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
+.confirm-icon.danger { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
+.confirm-icon.info { background: rgba(59, 130, 246, 0.2); color: #3b82f6; }
+
+/* ===================== */
+/* Skeleton Loading */
+/* ===================== */
+.skeleton {
+    background: linear-gradient(90deg, var(--card-bg) 25%, var(--card-bg-hover) 50%, var(--card-bg) 75%);
+    background-size: 200% 100%;
+    animation: skeleton 1.5s infinite;
+    border-radius: 8px;
+}
+
+@keyframes skeleton {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.skeleton-text { height: 1rem; margin-bottom: 0.5rem; }
+.skeleton-title { height: 1.5rem; width: 60%; margin-bottom: 1rem; }
+.skeleton-image { height: 200px; width: 100%; }
+
+/* ===================== */
+/* Custom Scrollbar */
+/* ===================== */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--darker-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-gold);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-gold-light);
+}
+
+/* ===================== */
+/* Footer */
+/* ===================== */
+.footer-premium {
+    background: linear-gradient(180deg, transparent 0%, rgba(15, 15, 26, 0.95) 100%);
+    border-top: 1px solid var(--glass-border);
+    padding-top: 4rem;
+    position: relative;
+}
+
+.hover-gold:hover {
+    color: var(--primary-gold) !important;
+}
+
+/* ===================== */
+/* Animations */
+/* ===================== */
+.animate-fade-in {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
