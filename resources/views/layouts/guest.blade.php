@@ -717,7 +717,7 @@
                     <ul class="list-unstyled text-muted">
                         <li class="mb-3 d-flex align-items-start">
                             <i class="bi bi-geo-alt-fill text-gold me-3 mt-1"></i>
-                            <span>Jl. Hotel No. 123, Jakarta Pusat, Indonesia</span>
+                            <span>Indonesia</span>
                         </li>
                         <li class="mb-3 d-flex align-items-center">
                             <i class="bi bi-telephone-fill text-gold me-3"></i>
