@@ -1,4 +1,5 @@
 
+
 # 🏨 Hotel Management System (Sistem Manajemen Hotel)
 
 Selamat datang di dokumentasi resmi untuk **Hotel Management System**. Proyek ini adalah solusi berbasis web yang komprehensif, dirancang untuk memudahkan operasional hotel mulai dari pemesanan kamar oleh tamu hingga pengelolaan administrasi oleh staf hotel. Dibangun dengan framework **Laravel 10**, sistem ini menawarkan keandalan, keamanan, dan kemudahan penggunaan.
